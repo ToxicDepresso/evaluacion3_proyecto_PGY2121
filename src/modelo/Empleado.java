@@ -20,11 +20,12 @@ public class Empleado {
     private int fono;
     private String direccion;
     private Date fecCont;
+    private Boolean activo;
     
     public Empleado() {
     }
 
-    public Empleado(String numRut, String dvRut, String nombre, String appaterno, String apmaterno, String genero, Date fecNac, String estCivil, int fono, String direccion, Date fecCont) {
+    public Empleado(String numRut, String dvRut, String nombre, String appaterno, String apmaterno, String genero, Date fecNac, String estCivil, int fono, String direccion, Date fecCont, Boolean activo) {
         this.numRut = numRut;
         this.dvRut = dvRut;
         this.nombre = nombre;
@@ -36,6 +37,7 @@ public class Empleado {
         this.fono = fono;
         this.direccion = direccion;
         this.fecCont = fecCont;
+        this.activo = activo;
     }
 
     public String getNumRut() {
@@ -125,6 +127,13 @@ public class Empleado {
     public void setFecCont(Date fecCont) {
         this.fecCont = fecCont;
     }
-    
+
+    public Boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(Boolean activo) {
+        this.activo = activo;
+    }
     
 }

@@ -62,9 +62,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         jtxt_mescont = new javax.swing.JTextField();
         jtxt_anocont = new javax.swing.JTextField();
         jlbl_fechaCont = new javax.swing.JLabel();
+        jchk_activo = new javax.swing.JCheckBox();
+        jLabel6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jbtn_agregar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jbtn_volver = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -149,10 +151,14 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         });
 
         jcbo_estcivil.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Soltero(a)", "Casado(a)", "Viudo(a)", "Divorciado(a)" }));
+        jcbo_estcivil.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbo_estcivilActionPerformed(evt);
+            }
+        });
 
         jlblb_estcivil.setText("Estado Civil");
 
-        jtxt_fono.setText("123456789");
         jtxt_fono.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtxt_fonoFocusGained(evt);
@@ -173,7 +179,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         jtxt_direccion.setRows(5);
         jtxt_direccion.setToolTipText("");
         jtxt_direccion.setWrapStyleWord(true);
-        jtxt_direccion.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jtxt_direccion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setViewportView(jtxt_direccion);
 
         jtxt_diacont.setText("dd");
@@ -198,6 +204,8 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         });
 
         jlbl_fechaCont.setText("Fecha Contrato");
+
+        jLabel6.setText("Activo");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -224,15 +232,17 @@ public class AgregarEmpleado extends javax.swing.JFrame {
                             .addComponent(jlblb_estcivil, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jlbl_fechaCont, javax.swing.GroupLayout.Alignment.TRAILING))))
+                            .addComponent(jlbl_fechaCont, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jchk_activo)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jtxt_nombre)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(jtxt_numrut)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jtxt_numrut, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 7, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jtxt_dvrut, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addComponent(jtxt_apmaterno)
@@ -302,7 +312,7 @@ public class AgregarEmpleado extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jlblb_estcivil)
-                    .addComponent(jcbo_estcivil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcbo_estcivil, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtxt_fono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -317,7 +327,11 @@ public class AgregarEmpleado extends javax.swing.JFrame {
                     .addComponent(jtxt_mescont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jtxt_anocont, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlbl_fechaCont))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jchk_activo)
+                    .addComponent(jLabel6))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jbtn_agregar.setText("Agregar");
@@ -327,10 +341,10 @@ public class AgregarEmpleado extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Volver");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbtn_volver.setText("Volver");
+        jbtn_volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbtn_volverActionPerformed(evt);
             }
         });
 
@@ -338,21 +352,21 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addComponent(jbtn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(jbtn_volver, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86))
+                .addComponent(jbtn_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbtn_agregar)
-                    .addComponent(jButton1))
-                .addContainerGap(50, Short.MAX_VALUE))
+                    .addComponent(jbtn_volver))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -370,7 +384,8 @@ public class AgregarEmpleado extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
         pack();
@@ -381,14 +396,45 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         int fono;
         String numRut,dvRut,nombre,appaterno,apmaterno,genero,dianac,mesnac,anonac,fecNacStr,estCivil,direccion,diacont,mescont,anocont,fecContStr;
         Date fecNac,fecCont;
+        Boolean activo;
         
         numRut = this.jtxt_numrut.getText();
-        dvRut = this.jtxt_dvrut.getText();
-        nombre = this.jtxt_nombre.getText();
-        appaterno = this.jtxt_apmaterno.getText();
-        apmaterno = this.jtxt_apmaterno.getText();
-        genero = this.jbtnGroup_genero.getSelection().getActionCommand();
+        if (numRut.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese número de rut", "Validación", 2);
+            this.jtxt_numrut.requestFocus();
+            return;
+        }
         
+        dvRut = this.jtxt_dvrut.getText();
+        if (dvRut.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese digito verificador", "Validación", 2);
+            this.jtxt_dvrut.requestFocus();
+            return;
+        }
+        
+        nombre = this.jtxt_nombre.getText();
+        if (nombre.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese nombre", "Validación", 2);
+            this.jtxt_nombre.requestFocus();
+            return;
+        }
+        
+        appaterno = this.jtxt_apmaterno.getText();
+        if (appaterno.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese apellido paterno", "Validación", 2);
+            this.jtxt_appaterno.requestFocus();
+            return;
+        }
+        
+        apmaterno = this.jtxt_apmaterno.getText();
+        if (apmaterno.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Ingrese apellido materno", "Validación", 2);
+            this.jtxt_apmaterno.requestFocus();
+            return;
+        }
+        
+        genero = this.jbtnGroup_genero.getSelection().getActionCommand();
+
         dianac = this.jtxt_dianac.getText();
         mesnac = this.jtxt_mesnac.getText();
         anonac = this.jtxt_anonac.getText();
@@ -403,7 +449,9 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         }
         
         estCivil = this.jcbo_estcivil.getSelectedItem().toString();
+        
         fono = Integer.parseInt(this.jtxt_fono.getText());
+        
         direccion = this.jtxt_direccion.getText();
         
         diacont = this.jtxt_diacont.getText();
@@ -419,19 +467,42 @@ public class AgregarEmpleado extends javax.swing.JFrame {
             return;
         }
        
-        Empleado empleado = new Empleado(numRut,dvRut,nombre,appaterno,apmaterno,genero,fecNac,estCivil,fono,direccion,fecCont);
+        activo = this.jchk_activo.isSelected();
+        if(activo){
+            jchk_activo.setSelected(false);
+        } else {
+            jchk_activo.setSelected(true);
+        }
+        
+        Empleado empleado = new Empleado(numRut,dvRut,nombre,appaterno,apmaterno,genero,fecNac,estCivil,fono,direccion,fecCont,activo);
 
         Registro reg = new Registro();
         
         if (reg.buscarEmpleado(reg.buscarTodos(), numRut) == false) {
             if (reg.agregar(empleado)) {
-                JOptionPane.showMessageDialog(this, "Se Agregó el empleado", "Información", 1);
-
+                JOptionPane.showMessageDialog(this, "El empleado ha sido ingresado", "Información", 1);
+                this.jtxt_numrut.setText("");
+                this.jtxt_dvrut.setText("");
+                this.jtxt_anocont.setText("");
+                this.jtxt_nombre.setText("");
+                this.jtxt_appaterno.setText("");
+                this.jtxt_apmaterno.setText("");
+                this.jbtnGroup_genero.clearSelection();
+                this.jtxt_dianac.setText("dd");
+                this.jtxt_mesnac.setText("mm");
+                this.jtxt_anonac.setText("aaaa");
+                this.jcbo_estcivil.setSelectedIndex(0);
+                this.jtxt_fono.setText("");
+                this.jtxt_direccion.setText("");
+                this.jtxt_diacont.setText("dd");
+                this.jtxt_mescont.setText("mm");
+                this.jtxt_anocont.setText("aaaa");
+                this.jchk_activo.setSelected(false);
             } else {
-                JOptionPane.showMessageDialog(this, "No se Agregó el empleado", "Información", 0);
+                JOptionPane.showMessageDialog(this, "Empleado ya existe", "Información", 2);
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Empleado ya existe", "Información", 1);
+            JOptionPane.showMessageDialog(this, "Error al ingresar Empleado", "Información", 0);
         }
         
     }//GEN-LAST:event_jbtn_agregarActionPerformed
@@ -496,24 +567,30 @@ public class AgregarEmpleado extends javax.swing.JFrame {
         this.jtxt_anocont.setText("");
     }//GEN-LAST:event_jtxt_anocontFocusGained
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jbtn_volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtn_volverActionPerformed
         dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbtn_volverActionPerformed
+
+    private void jcbo_estcivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbo_estcivilActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbo_estcivilActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.ButtonGroup jbtnGroup_genero;
     private javax.swing.JButton jbtn_agregar;
+    private javax.swing.JButton jbtn_volver;
     private javax.swing.JComboBox<String> jcbo_estcivil;
+    private javax.swing.JCheckBox jchk_activo;
     private javax.swing.JLabel jlbl_apmaterno;
     private javax.swing.JLabel jlbl_appaterno;
     private javax.swing.JLabel jlbl_fechaCont;
